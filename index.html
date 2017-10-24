@@ -16,11 +16,12 @@
       <br/><br/>this message will disappear when <em>app</em> view is correctly rendered<br/><br/><br/>
     </h5>
   </div>
-
+  <script src="src/data/exampleVideoData.js"></script>
 
   <script src="src/models/video.js"></script>
   <script src="src/collections/videos.js"></script>
   <script src="src/lib/templateUrl.js"></script>
+
 
   <script src="src/views/app.js"></script>
   <script src="src/views/search.js"></script>
@@ -31,6 +32,7 @@
   <script>
     backboneReady(() => {
       new AppView();
+      new VideoListView();
     });
   </script>
 
