@@ -1,6 +1,4 @@
 var VideoListView = Backbone.View.extend({
-
-  el: '.list',
   
   initialize: function() {
     // put event handler for changing an individual video entry view
