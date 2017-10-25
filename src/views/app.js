@@ -9,7 +9,6 @@ var AppView = Backbone.View.extend({
     this.render();
   },
 
-
   render: function() {
     this.$el.html(this.template());
     new SearchView({ el: '.search' }).render();
@@ -19,28 +18,29 @@ var AppView = Backbone.View.extend({
   },
   
   fetchParams: {
-    key: window.YOUTUBE_API_KEY,
     url: 'https://www.googleapis.com/youtube/v3/search',
     method: 'GET',
     reset: true,
-    type: 'video',
-    data: {
-      part: 'snippet',
-      maxResults: '5',
-      q: 'puppies'
-    },
     success: function(collection, data) {
-      this.videos = new Videos(data);
-      this.render();
+      console.log('successful fetch');
+      console.log(collection);
+      new VideoListView({ el: '.list', collection: collection}).render();
     },
     failure: function(error) { 
       console.log('Fetch failed ', error); 
     }
   },
   
+  fetchData: {
+    part: 'snippet',
+    maxResults: '5',
+    key: window.YOUTUBE_API_KEY,
+    type: 'video'
+  },
+  
   onSearch: function(query) {
-    console.log('app clicked');
-    var params = _.extend(this.fetchParams, { q: 'puppies' });
+    var dataParams = _.extend(this.fetchData, { q: query });
+    var params = _.extend(this.fetchParams, { data: dataParams });
     this.videos.fetch(this.fetchParams);
   },
 
