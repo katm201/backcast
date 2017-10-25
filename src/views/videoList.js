@@ -2,7 +2,7 @@ var VideoListView = Backbone.View.extend({
 
   initialize: function() {
     this.collection.on('select', function(model) {
-      // placeholder for re-rendering list view when new video is selected
+      // placeholder for re-rendering list view when new video
     });
   },
 
