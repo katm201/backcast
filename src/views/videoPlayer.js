@@ -1,10 +1,13 @@
 var VideoPlayerView = Backbone.View.extend({
 
   initialize: function() {
-    this.title = this.model.get('title');
-    this.description = this.model.get('description');
-    this.vidID = this.model.get('id');
+    this.newModel = this.collection.models[0];
+    
+    this.title = this.newModel.get('title');
+    this.description = this.newModel.get('description');
+    this.vidID = this.newModel.get('id');
     this.baseSource = 'https://www.youtube.com/embed/';
+    
   },
 
   render: function() {
