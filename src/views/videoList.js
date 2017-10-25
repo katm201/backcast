@@ -5,7 +5,7 @@ var VideoListView = Backbone.View.extend({
     this.$el.html(this.template());
     this.$el.children('.video-list').children().detach();
     for (var i = 0; i < this.collection.length; i++) {
-      let video = new Video(this.collection[i]);
+      let video = this.collection.models[i];
       this.$el.children('.video-list').append(new VideoListEntryView({ model: video }).render());
     }
     return this;
