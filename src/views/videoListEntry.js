@@ -1,6 +1,7 @@
 var VideoListEntryView = Backbone.View.extend({
 
   initialize: function() {
+    console.log(this.model);
     this.title = this.model.get('title');
     this.description = this.model.get('description');
     this.thumbnail = this.model.get('thumbnail');
