@@ -1,6 +1,8 @@
 describe ('VideosCollection', function() {
 
-  xdescribe('when retrieving live data from YouTube', function() {
+
+  describe
+  ('when retrieving live data from YouTube', function() {
     var collection;
 
     beforeEach(function() {

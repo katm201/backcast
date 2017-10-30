@@ -1,9 +1,14 @@
+
 <div class="video-list-entry media">
   <div class="media-left">
-    <img class="media-object" src="<%=thumbnail%>" />
+    <img class="media-object" src="<%= snippet.thumbnails.default.url %>" />
   </div>
   <div class="media-body">
-    <div class="video-list-entry-title"><%=title%></div>
-    <div class="video-list-entry-detail"><%=description%></div>
+    <div class="video-list-entry-title">
+      <%= snippet.title %>
+    </div>
+    <div class="video-list-entry-detail">
+      <%= snippet.description %>
+    </div>
   </div>
 </div>

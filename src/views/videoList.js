@@ -6,14 +6,18 @@ var VideoListView = Backbone.View.extend({
     });
   },
 
+  initialize: function() {
+    this.listenTo(this.collection, 'sync', this.render);
+  },
+  
   render: function() {
     this.$el.children().detach();
     this.$el.html(this.template());
-    this.$el.children('.video-list').children().detach();
-    for (var i = 0; i < this.collection.length; i++) {
-      let video = this.collection.models[i];
-      this.$el.children('.video-list').append(new VideoListEntryView({ model: video }).render());
-    }
+    this.$('.video-list').append(
+      this.collection.map(function(video) {
+        return new VideoListEntryView({ model: video }).render().el;
+      })
+    );
     return this;
   },
 
